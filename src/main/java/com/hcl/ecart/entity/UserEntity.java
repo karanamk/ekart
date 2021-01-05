@@ -4,17 +4,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
 @Entity
 
 public class UserEntity {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long userId;
+	private String userName;
+	private String password;
+	private String emailId;
+	private long mobile;
+	private String address;
+	@ManyToOne
+	private Role role;
+	
+	
 
-public int getUserId() {
+public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {
@@ -29,12 +49,7 @@ public int getUserId() {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
+	
 	public String getEmailId() {
 		return emailId;
 	}
@@ -53,22 +68,7 @@ public int getUserId() {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getRoleName() {
-		return roleName;
-	}
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-private int userId;
-private String userName;
-private String password;
-private String confirmPassword;
-private String emailId;
-private long mobile;
-private String address;
-private String roleName;
+	
 
 
 }

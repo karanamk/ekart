@@ -1,15 +1,18 @@
 package com.hcl.ecart.dto;
 
+import javax.persistence.ManyToOne;
 
+import com.hcl.ecart.entity.Role;
 
 public class UserRequestDto {
 	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+	private String userName;
+	private String password;
+	private String emailId;
+	private long mobile;
+	private String address;
+	private Role role;
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -22,12 +25,7 @@ public class UserRequestDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
+	
 	public String getEmailId() {
 		return emailId;
 	}
@@ -46,19 +44,13 @@ public class UserRequestDto {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getRoleName() {
-		return roleName;
+	public Role getRole() {
+		return role;
 	}
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	private int userId;
-	private String userName;
-	private String password;
-	private String confirmPassword;
-	private String emailId;
-	private long mobile;
-	private String address;
-	private String roleName;
+
+	
 
 }
